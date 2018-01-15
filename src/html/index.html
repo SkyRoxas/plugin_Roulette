@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/app.css">
+</head>
+
+<style>
+  .circle {
+    position: relative;
+    width: 646px;
+    margin: 0 auto;
+    margin-top: 150px;
+    overflow: hidden;
+  }
+
+  .circle_turn {
+    position: absolute;
+    z-index: -1;
+    width: 560px;
+    height: 560px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    animation: rotating 3s linear infinite;
+  }
+
+  a.circle_bt {
+    position: absolute;
+    width: 241px;
+    height: 241px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    animation: scaling .6s ease-out infinite;
+  }
+
+
+</style>
+
+<body>
+
+  <div id="container" class="container">
+
+    <div class="circle">
+      <div class="circle_turn"> <img src="./images/circle_turn.png" alt="轉盤" href="javascript:submitGame();"> </div>
+      <img src="./images/circle_frame.png" alt="轉盤外框">
+    </div>
+
+    <a class="circle_bt">
+      <img src="./images/circle_bt.png" href="javascript:submitGame();" alt="試手氣">
+    </a>
+
+  </div>
+
+
+  <script src="./js/bundle.js"></script>
+
+</body>
+
+</html>
