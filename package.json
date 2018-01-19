@@ -2,7 +2,7 @@
   "name": "localhost",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "./src/entry.js",
   "scripts": {
     "start": "./node_modules/.bin/gulp watch",
     "build": ""

@@ -3,88 +3,6 @@ import velocity from 'velocity-animate'
 
 $.fn.velocity = velocity
 
-const data = {
-  id: '',
-  type: 'circle',
-  el: {
-    circle: '.circle_turn'
-  },
-  items: [
-    {
-      'msg': '$300',
-      'output': '恭喜你獲得 $300 禮券',
-      'scale': 1
-    }, {
-      'msg': '$100',
-      'output': '恭喜你獲得 $100 禮券',
-      'scale': 1
-    }, {
-      'msg': '$50',
-      'output': '恭喜你獲得 $50 禮券',
-      'scale': 1
-    }, {
-      'msg': '再接再厲',
-      'output': '請再接再厲',
-      'scale': 1
-    }, {
-      'msg': '$300',
-      'output': '恭喜你獲得 $300 禮券',
-      'scale': 1
-    }, {
-      'msg': '$100',
-      'output': '恭喜你獲得 $100 禮券',
-      'scale': 1
-    }, {
-      'msg': '$50',
-      'output': '恭喜你獲得 $50 禮券',
-      'scale': 1
-    }, {
-      'msg': '再接再 厲',
-      'output': '請再接再厲',
-      'scale': 1
-    }, {
-      'msg': '$300',
-      'output': '恭喜你獲得 $300 禮券',
-      'scale': 1
-    }, {
-      'msg': '＄100',
-      'output': '恭喜你獲得 $100 禮券',
-      'scale': 1
-    }, {
-      'msg': '＄50',
-      'output': '恭喜你獲得 $50 禮券',
-      'scale': 1
-    }, {
-      'msg': '再 接再厲',
-      'output': '請再接再厲',
-      'scale': 1
-    }
-  ],
-  anglePointer: 0,
-  angleOffset: -15,
-  turnsNumber: 10,
-  duration: 10500,
-  selectEvent: {
-    'event': 'content_loaded',
-    'resultTypes': 'alert'
-  },
-  events: {
-    'button_trigger': {
-      el: {
-        trigger: '.circle_bt'
-      }
-    },
-    'content_loaded': {}
-  },
-  resultTypes: {
-    'alert': {},
-    'text': {
-      el: '.message'
-    }
-  }
-
-}
-
 class Roulette {
   constructor(config) {
     this.el = config.el
@@ -290,13 +208,94 @@ class Roulette {
   }
 }
 
-const roulette = config => {
-  let obj = new Roulette(config)
-  obj.resultId = () => {
-    return 6
-  }
-  obj.start()
-}
-roulette(data)
+// const data = {
+//   id: '',
+//   type: 'circle',
+//   el: {
+//     circle: '.circle_turn'
+//   },
+//   items: [
+//     {
+//       'msg': '$300',
+//       'output': '恭喜你獲得 $300 禮券',
+//       'scale': 1
+//     }, {
+//       'msg': '$100',
+//       'output': '恭喜你獲得 $100 禮券',
+//       'scale': 1
+//     }, {
+//       'msg': '$50',
+//       'output': '恭喜你獲得 $50 禮券',
+//       'scale': 1
+//     }, {
+//       'msg': '再接再厲',
+//       'output': '請再接再厲',
+//       'scale': 1
+//     }, {
+//       'msg': '$300',
+//       'output': '恭喜你獲得 $300 禮券',
+//       'scale': 1
+//     }, {
+//       'msg': '$100',
+//       'output': '恭喜你獲得 $100 禮券',
+//       'scale': 1
+//     }, {
+//       'msg': '$50',
+//       'output': '恭喜你獲得 $50 禮券',
+//       'scale': 1
+//     }, {
+//       'msg': '再接再 厲',
+//       'output': '請再接再厲',
+//       'scale': 1
+//     }, {
+//       'msg': '$300',
+//       'output': '恭喜你獲得 $300 禮券',
+//       'scale': 1
+//     }, {
+//       'msg': '＄100',
+//       'output': '恭喜你獲得 $100 禮券',
+//       'scale': 1
+//     }, {
+//       'msg': '＄50',
+//       'output': '恭喜你獲得 $50 禮券',
+//       'scale': 1
+//     }, {
+//       'msg': '再 接再厲',
+//       'output': '請再接再厲',
+//       'scale': 1
+//     }
+//   ],
+//   anglePointer: 0,
+//   angleOffset: -15,
+//   turnsNumber: 10,
+//   duration: 10500,
+//   selectEvent: {
+//     'event': 'content_loaded',
+//     'resultTypes': 'alert'
+//   },
+//   events: {
+//     'button_trigger': {
+//       el: {
+//         trigger: '.circle_bt'
+//       }
+//     },
+//     'content_loaded': {}
+//   },
+//   resultTypes: {
+//     'alert': {},
+//     'text': {
+//       el: '.message'
+//     }
+//   }
+// }
 
-export default roulette
+// const roulette = config => {
+//   let obj = new Roulette(config)
+//   obj.resultId = () => {
+//     return 6
+//   }
+//   obj.start()
+// }
+// roulette(data)
+
+export default Roulette
