@@ -43,7 +43,7 @@ $ npm run start
 |-- README.md
 ```
 
-***
+--------------------------------------------------------------------------------
 
 # Roultte
 
@@ -51,7 +51,7 @@ $ npm run start
 
 ## 如何使用
 
-#### 定義設定參數
+### 定義設定參數
 
 ```
 const data = {
@@ -104,7 +104,7 @@ const data = {
 }
 ```
 
-#### 建立 Roulette 物件
+### 建立 Roulette 物件
 
 ```{.javascript}
 let obj = new Roulette(data)
@@ -134,4 +134,5 @@ actionResult = (msg) => {
   // do something
 }
 ```
+
 > msg 為輪盤輸出結果
