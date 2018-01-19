@@ -65,8 +65,8 @@ const data = {
   turnsNumber: 10,
   duration: 10500,
   selectEvent: {
-    'event': 'button_trigger',
-    'resultTypes': 'text'
+    'event': 'content_loaded',
+    'resultTypes': 'alert'
   },
   events: {
     'button_trigger': {
@@ -295,7 +295,6 @@ const roulette = config => {
   obj.resultId = () => {
     return 6
   }
-  obj.getRouletteItem()
   obj.start()
 }
 roulette(data)
