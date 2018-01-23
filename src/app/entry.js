@@ -298,4 +298,5 @@ class Roulette {
 // }
 // roulette(data)
 
+window.roulette = Roulette
 export default Roulette
