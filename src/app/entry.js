@@ -55,7 +55,7 @@ class Roulette {
       output = []
     this.init()
     output = arr.filter((currentValue, index) => {
-      return arr.findIndex((el)=> el.id === currentValue.id) === index
+      return arr.findIndex((el) => el.id === currentValue.id) === index
     })
     return output
   }
@@ -298,9 +298,9 @@ class Roulette {
 // }
 // roulette(data)
 
-window.roulette = (config)=>{
-  for(let item in config){
-    let obj = new Roulette(item)
+window.roulette = (config) => {
+  for (let i = 0; i < config.length; i++) {
+    let obj = new Roulette(config[i])
     obj.start()
   }
 }
