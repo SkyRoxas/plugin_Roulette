@@ -298,5 +298,10 @@ class Roulette {
 // }
 // roulette(data)
 
-window.roulette = Roulette
+window.roulette = (config)=>{
+  for(let item in config){
+    let obj = new Roulette(item)
+    obj.start()
+  }
+}
 export default Roulette
