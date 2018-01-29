@@ -19,7 +19,7 @@ class Roulette {
 
   // 獲獎 ID
   resultId() {
-    return 8
+    return 5
   }
   // scale 的總和
   totalScale() {
@@ -27,8 +27,9 @@ class Roulette {
       return previousValue + currentValue.scale
     }, 0)
   }
-  // 中獎 ID 項目要停止的角度
-  resultAngle() {
+
+  // 取得符合對應 ID 的物件，並帶入 Array
+  resultObj() {
     let id = this.resultId(),
       arr = this.items,
       filterArr = []
@@ -39,13 +40,17 @@ class Roulette {
         return false
       }
     })
-
-    if (filterArr.length > 0) {
-      let index = this.mathRandom(0, filterArr.length)
-      return this.mathAngleStop(filterArr[index].angle)
+    return filterArr
+  }
+  // 取得 中獎 ID 項目 內的屬性
+  resultProp($prop) {
+    let resultObj = this.resultObj()
+    if (resultObj.length > 0) {
+      let index = this.mathRandom(0, resultObj.length)
+      return resultObj[index][$prop]
     } else {
-      alert('找不到對應的中獎ID')
-      return
+      console.log('找不到對應的中獎ID')
+      console.log(this.getRouletteItem())
     }
   }
 
@@ -112,12 +117,14 @@ class Roulette {
   }
   // 計算停止角度
   mathAngleStop(angle) {
-    let {min, max} = angle,
-      angleRandom = this.mathRandom(min, max),
-      angleOffset = this.angleOffset,
-      anglePointer = this.anglePointer,
-      angleTurnsNumper = this.mathTurnsAngle()
-    return angleRandom + angleOffset + angleTurnsNumper + anglePointer
+    if(angle){
+      let {min, max} = angle,
+        angleRandom = this.mathRandom(min, max),
+        angleOffset = this.angleOffset,
+        anglePointer = this.anglePointer,
+        angleTurnsNumper = this.mathTurnsAngle()
+      return angleRandom + angleOffset + angleTurnsNumper + anglePointer
+    }
   }
 
   // 過濾訊息多餘的空白
@@ -127,20 +134,21 @@ class Roulette {
 
   // 使輪盤旋轉到指定的位置
   run() {
+    this.init()
+
     let el = this.el.circle,
       duration = this.duration,
-      arr = this.items,
-      id = this.resultId(),
-      msg = arr[id].output
-    this.init()
+      angle = this.mathAngleStop(this.resultProp('angle')),
+      output = this.resultProp('output')
+
     $(el).velocity({
-      'rotateZ': this.resultAngle()
+      'rotateZ': angle
     }, {
       duration: duration,
       easing: 'easeOutQuart'
     })
     setTimeout(() => {
-      this.actionResult(msg)
+      this.actionResult(output)
     }, duration)
   }
 
@@ -173,16 +181,14 @@ class Roulette {
 
   // 輪盤停止： alert 出提示訊息
   resultAlert() {
-    let id = this.resultId(),
-      arr = this.items,
-      output = arr[id].output
-    alert(output)
+    let output = this.resultProp('output')
+    if(output){
+      alert(output)
+    }
   }
   // 輪盤停止： 將提示訊息帶入指定的 dom 元素
   resultInnerHtml() {
-    let id = this.resultId(),
-      arr = this.items,
-      output = arr[id].output,
+    let output = this.resultProp('output'),
       eventObj = this.resultTypes.text
     let {el} = eventObj
     $(el).html(output)
@@ -288,11 +294,11 @@ class Roulette {
 //     }
 //   }
 // }
-
+//
 // const roulette = config => {
 //   let obj = new Roulette(config)
 //   obj.resultId = () => {
-//     return 6
+//     return 100
 //   }
 //   obj.start()
 // }
